@@ -5,7 +5,7 @@ let context = canvas.getContext("2d");
 
 drawAvatar();
 function drawAvatar(){
-    context.fillStyle = "#EEEEEE"
+    context.fillStyle = "black"
     context.beginPath();
     context.rect(20, 20, 300, 300);
     context.fill();
