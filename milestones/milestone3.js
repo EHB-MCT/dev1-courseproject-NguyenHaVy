@@ -6,21 +6,11 @@ let height = context.canvas.height;
 
 let amount = 100;
 let rain = [];
+let clouds = [];
 
 setup();
 
 update();
-
-drawCloud();
-function drawCloud() {
-	for (let i = 0; i < 100; i++) {
-		let x = Utils.randomNumber(500, width - 500);
-		let y = Utils.randomNumber(0, height - 650);
-		let size = Utils.randomNumber(10, 100);
-		context.fillStyle = Utils.hsla(Utils.randomNumber(0, 360), 75, 95, 50);
-		Utils.fillCircle(x, y, size);
-	}
-}
 
 function setup() {
 	for (let i = 0; i < amount; i++) {
@@ -31,13 +21,22 @@ function setup() {
 		};
 		rain.push(drop);
 	}
+	for (let i = 0; i < 100; i++) {
+		let cloud = {
+			x: Utils.randomNumber(500, width - 500),
+			y: Utils.randomNumber(0, height - 650),
+			size: Utils.randomNumber(10, 100),
+			color: Utils.hsla(Utils.randomNumber(0, 360), 75, 95, 50),
+		};
+		clouds.push(cloud);
+	}
 }
 
 function update() {
 	context.fillStyle = "#9fd2ff";
 	context.fillRect(0, 0, width, height);
 	for (let i = 0; i < rain.length; i++) {
-		rain[i].y += 1;
+		rain[i].y += 0.5;
 
 		//met behulp van chatGPT
 		if (rain[i].y > height) {
@@ -45,15 +44,56 @@ function update() {
 			rain[i].x = Utils.randomNumber(width / 3, width / 2 + 250);
 		}
 		drawDrop(rain[i]);
+		drawCloud();
+		updateClouds();
+		drawAvatar();
 	}
+
+	updateClouds();
 	drawCloud();
 
 	requestAnimationFrame(update);
+}
+function updateClouds() {
+	for (let i = 0; i < clouds.length; i++) {
+		let cloud = clouds[i];
+		cloud.x += 0.025;
+
+		if (cloud.x > width / 2 + 250) {
+			cloud.x = Utils.randomNumber(350, width - 450);
+			cloud.y = Utils.randomNumber(0, height - 650);
+		}
+	}
 }
 
 function drawDrop(drop) {
 	context.fillStyle = drop.color;
 	Utils.fillEllipse(drop.x, drop.y, 5, 10);
+}
+
+function drawCloud() {
+	for (let i = 0; i < clouds.length; i++) {
+		let cloud = clouds[i];
+		context.fillStyle = cloud.color;
+		Utils.fillCircle(cloud.x, cloud.y, cloud.size);
+	}
+}
+
+function drawAvatar() {
+	context.fillStyle = "black";
+	context.beginPath();
+	context.rect(width - 305, height - 305, 300, 300);
+	context.fill();
+
+	context.fillStyle = "#d77373";
+	context.beginPath();
+	context.rect(145 + width - 325, 50 + height - 305, 50, 100);
+	context.rect(50 + width - 330, 100 + height - 305, 50, 50);
+	context.rect(240 + width - 320, 100 + height - 305, 50, 50);
+	context.rect(240 + width - 320, 200 + height - 305, 50, 50);
+	context.rect(50 + width - 330, 200 + height - 305, 50, 50);
+	context.rect(145 + width - 325, 200 + height - 305, 50, 50);
+	context.fill();
 }
 
 // met chatGPT; zodat als ik op de druppel klick het van kleur verandert
