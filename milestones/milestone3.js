@@ -54,6 +54,8 @@ function update() {
 
 	requestAnimationFrame(update);
 }
+
+//met behulp van chatGPT
 function updateClouds() {
 	for (let i = 0; i < clouds.length; i++) {
 		let cloud = clouds[i];
@@ -79,6 +81,7 @@ function drawCloud() {
 	}
 }
 
+//gekopieërd van milestone 1 (waardes verandert)
 function drawAvatar() {
 	context.fillStyle = "black";
 	context.beginPath();
@@ -96,7 +99,7 @@ function drawAvatar() {
 	context.fill();
 }
 
-// met chatGPT; zodat als ik op de druppel klick het van kleur verandert
+// van chatGPT
 document.onmousedown = click;
 
 /**

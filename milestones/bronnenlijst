@@ -1,1 +1,34 @@
-//dev exercises van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb de waardes toegepast zodat het een wolk en regen wordt.
+//milestone 2 gebaseerd op dev exercises van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb de waardes toegepast zodat het een wolk en regen wordt.
+
+//milestone 3 gebasserd op milestone 2 en exercices van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb waardes toegepast en sommige zaken toegevoegt met behulp van chatGPT.
+
+//gekopieerd van chatGPT: url ; ; als op de druppel klick, het van kleur verandert.
+/**
+ *
+ * @param{MouseEvent}e
+ */
+function click(e) {
+	// Bereken de klikpositie relatief aan het canvas
+	const rect = context.canvas.getBoundingClientRect(); //getBoundingClientRec geeft je de positie en afmetingen van het canvas in de viewport
+	const mouseX = e.clientX - rect.left; //clientX en clientY geven de positie van de muis weer t.o.v. het vieuwpoort van de browser
+	const mouseY = e.clientY - rect.top;
+
+	// Controleer of een druppel geraakt wordt
+	for (let i = 0; i < rain.length; i++) {
+		const drop = rain[i];
+		const dropWidth = 5;
+		const dropHeight = 10;
+
+		// Check of de klik binnen de ellips valt
+		const dx = mouseX - drop.x; //dx = distance tussen de x-coördinaten van de muis en druppel
+		const dy = mouseY - drop.y; //dy = distance tussen de y-coördinaten van de muis en druppel
+		if (
+			(dx * dx) / (dropWidth * dropWidth) +
+				(dy * dy) / (dropHeight * dropHeight) <=
+			1 //ellipse formule
+		) {
+			drop.color = "	#34346d";
+			break;
+		}
+	}
+}

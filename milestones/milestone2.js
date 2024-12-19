@@ -41,3 +41,20 @@ function drawSky() {
 	context.fillStyle = "#0FA8FF";
 	context.fillRect(0, 0, width, height);
 }
+
+function drawRain() {
+	let rows = 200;
+	let columns = 7;
+	let w = 50;
+	let h = 50;
+	let margin = width / 3 + 25;
+
+	for (let i = 0; i < columns; i++) {
+		context.fillStyle = "#54d4e8";
+		for (let j = 0; j < rows; j++) {
+			let x = margin + i * (w + 10);
+			let y = j * (h + 5);
+			context.fillRect(x, y, w, h);
+		}
+	}
+}
