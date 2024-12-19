@@ -2,7 +2,7 @@
 
 //milestone 3 is gebasserd op milestone 2 en exercices (8-1 en reaction test) van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb waardes toegepast en sommige zaken toegevoegt met behulp van chatGPT.
 
-//gekopieerd van chatGPT: url ; ; als op de druppel klick, het van kleur verandert.
+//gekopieerd van chatGPT: https://chatgpt.com/share/67639051-8334-8013-a075-e951692a9a02 ; als op de druppel klick, het van kleur verandert.
 /**
  *
  * @param{MouseEvent}e
@@ -33,4 +33,4 @@ function click(e) {
 	}
 }
 
-//codes geschreven met behulp van chatGPT:url; ik heb een deel geschreven en chatGPT heeft me verder geholpen en uitgelegd hoe je twee animaties doet.
+//codes geschreven met behulp van chatGPT: https://chatgpt.com/share/6763902c-a328-8013-b315-98e97965bad5 ; ik heb een deel geschreven en chatGPT heeft me verder geholpen en uitgelegd hoe je twee animaties doet.
