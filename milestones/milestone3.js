@@ -4,12 +4,11 @@ import * as Utils from "../scripts/utils.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-let amount = 100;
+let amount = 300;
 let rain = [];
 let clouds = [];
 
 setup();
-
 update();
 
 function setup() {
@@ -25,7 +24,7 @@ function setup() {
 		let cloud = {
 			x: Utils.randomNumber(500, width - 500),
 			y: Utils.randomNumber(0, height - 650),
-			size: Utils.randomNumber(10, 100),
+			size: Utils.randomNumber(80, 100),
 			color: Utils.hsla(Utils.randomNumber(0, 360), 75, 95, 50),
 		};
 		clouds.push(cloud);
@@ -36,7 +35,7 @@ function update() {
 	context.fillStyle = "#9fd2ff";
 	context.fillRect(0, 0, width, height);
 	for (let i = 0; i < rain.length; i++) {
-		rain[i].y += 0.5;
+		rain[i].y += 1;
 
 		//met behulp van chatGPT
 		if (rain[i].y > height) {
@@ -59,10 +58,10 @@ function update() {
 function updateClouds() {
 	for (let i = 0; i < clouds.length; i++) {
 		let cloud = clouds[i];
-		cloud.x += 0.025;
+		cloud.y += 0.005;
 
-		if (cloud.x > width / 2 + 250) {
-			cloud.x = Utils.randomNumber(350, width - 450);
+		if (cloud.y > height / 5) {
+			cloud.x = Utils.randomNumber(450, width - 450);
 			cloud.y = Utils.randomNumber(0, height - 650);
 		}
 	}

@@ -1,6 +1,6 @@
-//milestone 2 gebaseerd op dev exercises van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb de waardes toegepast zodat het een wolk en regen wordt.
+//milestone 2 is gebaseerd op dev exercises van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb de waardes toegepast zodat het een wolk en regen wordt.
 
-//milestone 3 gebasserd op milestone 2 en exercices van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb waardes toegepast en sommige zaken toegevoegt met behulp van chatGPT.
+//milestone 3 is gebasserd op milestone 2 en exercices (8-1 en reaction test) van Peter Dickx: https://github.com/EHB-MCT/dev1-excercises-NguyenHaVy.git; ik heb waardes toegepast en sommige zaken toegevoegt met behulp van chatGPT.
 
 //gekopieerd van chatGPT: url ; ; als op de druppel klick, het van kleur verandert.
 /**
@@ -32,3 +32,5 @@ function click(e) {
 		}
 	}
 }
+
+//codes geschreven met behulp van chatGPT:url; ik heb een deel geschreven en chatGPT heeft me verder geholpen en uitgelegd hoe je twee animaties doet.
